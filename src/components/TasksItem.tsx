@@ -12,19 +12,26 @@ type Task = {
 };
 
 export function TasksItem({ tasks, setTasks }: TasksItemProps) {
-  
   function handleDoneChange(task: Task) {
     const updatedTask = tasks.map((item) => {
-      if(item.info === task.info) {
+      if (item.info === task.info) {
         task.done = !task.done;
         return item;
       }
       return item;
-    })
-    
+    });
+
     setTasks(updatedTask);
   }
-  
+
+  function handleDelete(task: Task) {
+    const deletedTask = tasks.filter((item) => {
+      if (item.info !== task.info) return item;
+    });
+
+    setTasks(deletedTask);
+  }
+
   return (
     <>
       {tasks.map((task) => (
@@ -32,10 +39,13 @@ export function TasksItem({ tasks, setTasks }: TasksItemProps) {
           <div className={styles.container}>
             <div className={styles.checkboxContainer}>
               <input className={styles.input} type="checkbox" id="checkbox" />
-              <label htmlFor="checkbox" onClick={() => handleDoneChange(task)}></label>
+              <label
+                htmlFor="checkbox"
+                onClick={() => handleDoneChange(task)}
+              ></label>
             </div>
             <span>{task.info}</span>
-            <CgTrash />
+            <CgTrash onClick={() => handleDelete(task)} />
           </div>
         </div>
       ))}
