@@ -4,6 +4,7 @@ import { TasksItem } from "./TasksItem";
 
 interface TasksProps {
   tasks: Task[];
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 }
 
 type Task = {
@@ -11,7 +12,7 @@ type Task = {
   done: boolean;
 };
 
-export function Tasks({ tasks }: TasksProps) {
+export function Tasks({ tasks, setTasks }: TasksProps) {
   const doneTasks = tasks.filter((task) => {
     return task.done === true;
   })
@@ -29,7 +30,7 @@ export function Tasks({ tasks }: TasksProps) {
         </div>
         <div className={styles.tasksContent}>
           {tasks.length > 0 ? (
-            <TasksItem tasks={tasks} />
+            <TasksItem tasks={tasks} setTasks={setTasks}/>
           ) : (
             <>
               <img src={Clipboard} />
