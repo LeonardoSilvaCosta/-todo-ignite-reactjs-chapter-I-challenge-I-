@@ -28,7 +28,7 @@ export function Tasks({ tasks }: TasksProps) {
           </span>
         </div>
         <div className={styles.tasksContent}>
-          {tasks.length !== 0 ? (
+          {tasks.length > 0 ? (
             <TasksItem tasks={tasks} />
           ) : (
             <>
