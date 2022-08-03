@@ -1,25 +1,35 @@
-import { useState } from "react";
 import styles from "./Tasks.module.scss";
 import Clipboard from "../assets/Clipboard.svg";
 import { TasksItem } from "./TasksItem";
 
-export function Tasks(props = null) {
-  const [task, setTask] = useState();
+interface TasksProps {
+  tasks: Task[];
+}
+
+type Task = {
+  info?: string;
+  done: boolean;
+};
+
+export function Tasks({ tasks }: TasksProps) {
+  const doneTasks = tasks.filter((task) => {
+    return task.done === true;
+  })
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.tasksContainer}>
         <div className={styles.tasksCounters}>
           <span>
-            Tarefas criadas<p className={styles.numbers}>0</p>
+            Tarefas criadas<p className={styles.numbers}>{tasks.length}</p>
           </span>
           <span>
-            Concluídas<p className={styles.numbers}>0</p>
+            Concluídas<p className={styles.numbers}>{`${doneTasks.length} de ${tasks.length}`}</p>
           </span>
         </div>
         <div className={styles.tasksContent}>
-          {!props ? (
-            <TasksItem props={props} />
+          {tasks.length !== 0 ? (
+            <TasksItem tasks={tasks} />
           ) : (
             <>
               <img src={Clipboard} />
