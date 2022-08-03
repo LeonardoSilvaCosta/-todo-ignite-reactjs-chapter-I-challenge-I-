@@ -1,6 +1,6 @@
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
-import styles from "./NewTaskSession.module.css";
+import styles from "./NewTaskSession.module.scss";
 
 export function NewTaskSession() {
   return (
