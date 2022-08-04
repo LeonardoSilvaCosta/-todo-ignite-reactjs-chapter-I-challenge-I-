@@ -38,9 +38,9 @@ export function TasksItem({ tasks, setTasks }: TasksItemProps) {
         <div key={task.info} className={styles.wrapper}>
           <div className={styles.container}>
             <div className={styles.checkboxContainer}>
-              <input className={styles.input} type="checkbox" id="checkbox" />
+              <input className={styles.input} type="checkbox" id={task.info} />
               <label
-                htmlFor="checkbox"
+                htmlFor={task.info}
                 onClick={() => handleDoneChange(task)}
               ></label>
             </div>
