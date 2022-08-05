@@ -36,7 +36,7 @@ export function TasksItem({ tasks, setTasks }: TasksItemProps) {
   return (
     <>
       {tasks.map((task) => (
-        <div key={task.info} className={styles.wrapper}>
+        <div key={task.id} className={styles.wrapper}>
           <div className={styles.container}>
             <div className={styles.checkboxContainer}>
               <input className={styles.input} type="checkbox" id={task.info} />

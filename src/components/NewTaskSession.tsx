@@ -1,4 +1,3 @@
-import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { v4 as uuid } from 'uuid';
 
@@ -44,7 +43,6 @@ export function NewTaskSession() {
           <button className={styles.button} type="submit">
             Criar <AiOutlinePlusCircle />
           </button>
-          <ToastContainer />
         </form>
       </div>
       <Tasks tasks={tasks} setTasks={setTasks} />
