@@ -35,7 +35,7 @@ This project deals with a feed whose objective is to consolidate fundamental kno
 - [ReactJS](https://pt-br.reactjs.org/)
 - [Vite](https://vitejs.dev/)
 - [react-icons](https://react-icons.github.io/react-icons/)
-- [uudi](https://www.npmjs.com/package/react-uuid)
+- [uuid](https://www.npmjs.com/package/react-uuid)
 - [vsCode](https://code.visualstudio.com/)
 
 ---
