@@ -1,5 +1,6 @@
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import { v4 as uuid } from 'uuid';
 
 import { useState } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
@@ -8,6 +9,7 @@ import styles from "./NewTaskSession.module.scss";
 import { Tasks } from "./Tasks";
 
 type Task = {
+  id: string;
   info?: string;
   done: boolean;
 };
@@ -19,12 +21,8 @@ export function NewTaskSession() {
   function handleSubmit(e: any) {
     e.preventDefault();
 
-    const taskExists = tasks.some((task) => task.info === taskInfo);
-
-    if(taskExists) return toast.error("Task already exists");
-
     const newData = [...tasks];
-    const newTask = { info: taskInfo, done: false };
+    const newTask = {id: uuid(), info: taskInfo, done: false };
 
     newData.push(newTask);
 

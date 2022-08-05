@@ -8,6 +8,7 @@ interface TasksProps {
 }
 
 type Task = {
+  id: string;
   info?: string;
   done: boolean;
 };

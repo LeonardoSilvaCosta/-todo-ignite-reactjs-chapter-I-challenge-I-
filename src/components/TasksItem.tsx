@@ -7,6 +7,7 @@ interface TasksItemProps {
 }
 
 type Task = {
+  id: string;
   info?: string;
   done: boolean;
 };
@@ -14,7 +15,7 @@ type Task = {
 export function TasksItem({ tasks, setTasks }: TasksItemProps) {
   function handleDoneChange(task: Task) {
     const updatedTask = tasks.map((item) => {
-      if (item.info === task.info) {
+      if (item.id === task.id) {
         task.done = !task.done;
         return item;
       }
@@ -26,7 +27,7 @@ export function TasksItem({ tasks, setTasks }: TasksItemProps) {
 
   function handleDelete(task: Task) {
     const deletedTask = tasks.filter((item) => {
-      if (item.info !== task.info) return item;
+      if (item.id !== task.id) return item;
     });
 
     setTasks(deletedTask);
