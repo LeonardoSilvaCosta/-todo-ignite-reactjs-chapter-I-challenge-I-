@@ -1,4 +1,3 @@
-import 'react-toastify/dist/ReactToastify.min.css';
 import { v4 as uuid } from 'uuid';
 
 import { useState } from "react";
